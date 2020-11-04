@@ -43,4 +43,5 @@ script:
   - brew install --HEAD zato
   - zato --version
   - zato --help
-  - mkdir -p ~/env/qs-1 && zato quickstart create ~/env/qs-1/ sqlite localhost 6379 --servers 1
+  - mkdir -p ~/env/qs-1
+  - zato quickstart create ~/env/qs-1/ sqlite localhost 6379 --servers 1 || exit 1

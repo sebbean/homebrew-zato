@@ -1,5 +1,7 @@
 # Zato Homebrew Tap
 
+[![Build Status](https://travis-ci.org/DimShadoWWW/homebrew-zato.svg?branch=master)](https://travis-ci.org/DimShadoWWW/homebrew-zato)
+
 This tap is designed specifically for installing Zato in Mac OS X.
 
 ## How do I install these formulae?
