@@ -1,0 +1,50 @@
+language: ruby
+
+cache:
+  timeout: 600
+  ccache: true
+  directories:
+    - $HOME/Library/Caches/Homebrew
+    - /usr/local/Homebrew
+
+matrix:
+  include:
+    - env: OSX=10.13
+      os: osx
+      osx_image: xcode10.1
+      addons:
+        homebrew:
+          taps: DimShadoWWW/homebrew-zato
+    - env: OSX=10.14
+      os: osx
+      osx_image: xcode11.3
+      addons:
+        homebrew:
+          taps: DimShadoWWW/homebrew-zato
+    - env: OSX=10.15
+      os: osx
+      osx_image: xcode12.2
+      addons:
+        homebrew:
+          taps: DimShadoWWW/homebrew-zato
+
+before_cache:
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew cleanup; fi
+
+env:
+  global:
+    - HOMEBREW_DEVELOPER=1
+    - HOMEBREW_VERBOSE=1
+
+before_install:
+  - brew update || brew update
+  - mkdir -p $(brew --repo)/Library/Taps/dimshadowww
+  - ln -s $PWD $(brew --repo)/Library/Taps/dimshadowww/homebrew-zato
+  - cd $(brew --repo)/Library/Taps/dimshadowww/homebrew-zato
+  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/dimshadowww/homebrew-zato"
+  - ulimit -n 1024
+  - chmod 0644 Formula/*.rb
+  - umask 022
+
+script:
+  - brew test-bot --ci-testing zato
