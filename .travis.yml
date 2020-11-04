@@ -47,4 +47,7 @@ before_install:
   - umask 022
 
 script:
-  - brew test-bot --ci-testing zato
+  - brew install --HEAD zato
+  - zato --version
+  - zato --help
+  - mkdir -p ~/env/qs-1 && zato quickstart create ~/env/qs-1/ sqlite localhost 6379 --servers 1
