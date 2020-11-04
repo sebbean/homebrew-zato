@@ -34,7 +34,6 @@ class Zato < Formula
   depends_on "openssl"
   depends_on "ossp-uuid"
   depends_on "pkg-config"
-  depends_on "pybind11"
   depends_on "redis"
   depends_on "swig"
   depends_on "coreutils"
