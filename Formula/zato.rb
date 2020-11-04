@@ -13,7 +13,7 @@ class Zato < Formula
   # sha256 ""
   # license "LGPLv3"
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "pyenv-virtualenvwrapper"
   depends_on "llvm"
   depends_on "autoconf"
@@ -44,8 +44,8 @@ class Zato < Formula
   end
 
   def install
-    # Default to Python 3.8
-    python = Formula["python@3.8"].opt_bin/"python3"
+    # Default to Python 3.9
+    python = Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHON"] = python
     venv = virtualenv_create(libexec, python)
     venv.pip_install resources
@@ -55,7 +55,7 @@ class Zato < Formula
 
     # Run scripts directly in prefix
     cd "#{prefix}/code" do
-        system "./install.sh", "-p", "python3.8"
+        system "./install.sh", "-p", "python3.9"
     end
 
     bin.install_symlink "#{prefix}/code/bin/zato"
