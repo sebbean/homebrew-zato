@@ -36,6 +36,7 @@ class Zato < Formula
   depends_on "pkg-config"
   depends_on "redis"
   depends_on "swig"
+  depends_on "coreutils"
 
   resource "importlib-metadata" do
     url "https://files.pythonhosted.org/packages/56/1f/74c3e29389d34feea2d62ba3de1169efea2566eb22e9546d379756860525/importlib_metadata-2.0.0.tar.gz"
