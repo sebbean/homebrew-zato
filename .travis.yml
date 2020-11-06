@@ -12,21 +12,12 @@ matrix:
     - env: OSX=10.13
       os: osx
       osx_image: xcode10.1
-      addons:
-        homebrew:
-          taps: DimShadoWWW/homebrew-zato
     - env: OSX=10.14
       os: osx
       osx_image: xcode11.3
-      addons:
-        homebrew:
-          taps: DimShadoWWW/homebrew-zato
     - env: OSX=10.15
       os: osx
       osx_image: xcode12.2
-      addons:
-        homebrew:
-          taps: DimShadoWWW/homebrew-zato
 
 before_cache:
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew cleanup; fi
@@ -42,6 +33,7 @@ before_install:
   - brew update || brew update
 
 script:
+  - brew tap dimshadowww/homebrew-zato
   - brew install --HEAD zato
   - zato --version
   - zato --help
