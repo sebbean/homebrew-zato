@@ -55,7 +55,7 @@ class Zato < Formula
 
     # Run scripts directly in prefix
     cd "#{prefix}/code" do
-        system "./install.sh", "-p", "python3.9", print_stdout: true
+        system "./install.sh", "-p", "python3.9"
     end
 
     bin.install_symlink "#{prefix}/code/bin/zato"
