@@ -36,7 +36,7 @@ env:
     - HOMEBREW_DEVELOPER=1
     - HOMEBREW_VERBOSE=1
     - HOMEBREW_DISPLAY_INSTALL_TIMES=1
-    # - HOMEBREW_VERBOSE_USING_DOTS=1
+    - HOMEBREW_VERBOSE_USING_DOTS=1
 
 before_install:
   - brew update || brew update
@@ -47,3 +47,6 @@ script:
   - zato --help
   - mkdir -p ~/env/qs-1
   - zato quickstart create ~/env/qs-1/ sqlite localhost 6379 --servers 1 || exit 1
+
+notifications:
+  email: false
