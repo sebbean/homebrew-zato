@@ -59,17 +59,17 @@ class Zato < Formula
         # Open3.popen3(["./install.sh", "-p", "python3.9"]) do |_, stdout, stderr, wait_thread|
         #   [stdout.read, stderr.read, wait_thread.value]
         # end
-        begin
-          pid = fork do
-            $stdout.reopen("/dev/stdout")
-            $stdin.reopen("/dev/null")
-            exec "./install.sh", "-p", "python3.9"
-          end
-          sleep 10
-        ensure
-          Process.kill 9, pid
-        end
-        # system "./install.sh", "-p", "python3.9", :print_stdout => true, :verbose => true
+        # begin
+        #   pid = fork do
+        #     $stdout.reopen("/dev/stdout")
+        #     $stdin.reopen("/dev/null")
+        #     exec "./install.sh", "-p", "python3.9"
+        #   end
+        #   sleep 10
+        # ensure
+        #   Process.kill 9, pid
+        # end
+        system "./install.sh", "-p", "python3.9", :print_stdout => true, :verbose => true
     end
 
     bin.install_symlink "#{prefix}/code/bin/zato"
