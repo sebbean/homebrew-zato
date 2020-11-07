@@ -56,10 +56,10 @@ class Zato < Formula
     # Run scripts directly in prefix
     cd "#{prefix}/code" do
         # system_command("./install.sh", args: ["-p", "python3.9"], print_stdout: false)
-        Open3.popen3(["./install.sh", "-p", "python3.9"]) do |_, stdout, stderr, wait_thread|
-          [stdout.read, stderr.read, wait_thread.value]
-        end
-        # system "./install.sh", "-p", "python3.9", :print_stdout => true, :verbose => true
+        # Open3.popen3(["./install.sh", "-p", "python3.9"]) do |_, stdout, stderr, wait_thread|
+        #   [stdout.read, stderr.read, wait_thread.value]
+        # end
+        system "./install.sh", "-p", "python3.9", :print_stdout => true, :verbose => true
     end
 
     bin.install_symlink "#{prefix}/code/bin/zato"
