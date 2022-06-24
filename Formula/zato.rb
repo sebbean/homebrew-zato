@@ -3,7 +3,7 @@ class Zato < Formula
 
   desc "The next generation ESB and application server. Open-source. In Python"
   homepage "http://zato.io"
-  head "https://github.com/zatosource/zato.git", :branch => "anielkis-f-gh827-osx-support" # , :branch => "main"
+  head "https://github.com/zatosource/zato.git", :branch => "main"
                                          #, :revision => "090930930295adslfknsdfsdaffnasd13"
                                          # or :branch => "develop" (the default is "master")
                                          # or :tag => "1_0_release",
